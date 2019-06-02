@@ -2,6 +2,9 @@ package com.crazy_iter.example.svusalesapp;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -148,6 +151,9 @@ public class SellerInfoActivity extends AppCompatActivity {
                     clearData();
 
                 } else {
+                    Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+                    Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
+                    r.play();
                     new AlertDialog.Builder(SellerInfoActivity.this)
                             .setMessage("This Commission is already exist,\nWe will replace it, Are you agree?")
                             .setNegativeButton("No", null)
